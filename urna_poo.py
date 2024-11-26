@@ -10,7 +10,7 @@ class UrnaEletronica:
         self.carregar_dados()
 
     def carregar_dados(self):
-        """Carrega dados de eleitores e candidatos de arquivos CSV."""
+        # Carrega dados de eleitores e candidatos de arquivos CSV
         try:
             with open('eleitores.csv', 'r', encoding='utf-8') as f:
                 leitor = csv.DictReader(f)
@@ -25,7 +25,7 @@ class UrnaEletronica:
             print(f"Erro ao carregar dados: {e}")
 
     def registrar_voto(self, numero):
-        """Registra o voto no arquivo .pkl."""
+        # Registra o voto no arquivo .pkl
         arquivo_votos = "votos.pkl"
 
         # Verifica se o arquivo já existe
@@ -49,11 +49,11 @@ class UrnaEletronica:
             pickle.dump(self.votos, f)
 
     def verificar_eleitor(self, titulo):
-        """Verifica se o título corresponde a um eleitor válido."""
+        # Verifica se o título corresponde a um eleitor válido
         return self.eleitores.get(titulo)
 
     def verificar_candidato(self, numero):
-        """Verifica se o número corresponde a um candidato válido."""
+        # Verifica se o número corresponde a um candidato válido
         return self.candidatos.get(numero)
 
 class Eleitor:

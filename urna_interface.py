@@ -45,7 +45,7 @@ class InterfaceGrafica:
         self.janela.mainloop()
 
     def verificar_eleitor(self):
-        """Verifica o eleitor pelo título."""
+        # Verifica o eleitor pelo título
         titulo = self.entrada_titulo.get()
         eleitor = self.urna.verificar_eleitor(titulo)
         if eleitor:
@@ -59,7 +59,7 @@ class InterfaceGrafica:
             self.eleitor_cpf.set("")
 
     def votar(self):
-        """Registra o voto de um eleitor."""
+        # Registra o voto de um eleitor
         numero = self.entrada_numero.get()
         if numero:
             candidato = self.urna.verificar_candidato(numero)
@@ -73,14 +73,14 @@ class InterfaceGrafica:
             self.urna.registrar_voto("Branco")
             messagebox.showinfo("Voto Computado", "Voto registrado como Branco!")
 
-        # Limpar campos para o próximo eleitor
+        # Limpa campos para o próximo eleitor
         self.eleitor_nome.set("")
         self.eleitor_rg.set("")
         self.eleitor_cpf.set("")
         self.entrada_titulo.delete(0, tk.END)
         self.entrada_numero.delete(0, tk.END)
 
-# Criando a urna eletrônica e a interface gráfica
+# Cria a urna eletrônica e a interface gráfica
 if __name__ == "__main__":
     urna = UrnaEletronica()
     InterfaceGrafica(urna)
